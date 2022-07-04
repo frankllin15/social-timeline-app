@@ -42,7 +42,7 @@ As aplicações executaram por padrão nas seguintes portas:
 
 - Frontend: `4173`
 - Backend: `3000`# Tecnologias utilizadas
-##
+## Tecnologias utilizadas
 ### Backend
 
 - [Typescript](https://www.typescriptlang.org)
