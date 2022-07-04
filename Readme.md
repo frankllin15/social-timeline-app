@@ -42,8 +42,8 @@ As aplicações executaram por padrão nas seguintes portas:
 
 - Frontend: `4173`
 - Backend: `3000`# Tecnologias utilizadas
-
-## Backend
+##
+### Backend
 
 - [Typescript](https://www.typescriptlang.org)
 - [Nestjs](https://nestjs.com/) - Um framework para criar aplicativos do lado do servidor eficientes, confiáveis ​​e escaláveis.
@@ -51,7 +51,7 @@ As aplicações executaram por padrão nas seguintes portas:
 - [Graphql](https://graphql.org/) - Linguagem de consulta para APIs em tempo de execução
 - [Apollo Graphql](https://www.apollographql.com/) - Servidor Graphql
 
-## Frontend
+### Frontend
 
 - [React](https://pt-br.reactjs.org/) - Biblioteca JavaScript para criar interfaces de usuário
 - [TaiwindCSS](https://tailwindcss.com/) - Framework CSS de estilização com classes
