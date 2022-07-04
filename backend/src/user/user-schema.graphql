@@ -1,0 +1,57 @@
+type User {
+  id: ID!
+  name: String!
+  email: String!
+  password: String
+}
+
+type Users {
+  items: [User]
+}
+
+input CreateUserInput {
+  name: String!
+  email: String!
+  password: String!
+}
+
+input UpdateUserInput {
+  name: String
+  email: String
+  password: String
+}
+
+"""
+Retorna um usuário pelo ID ou um erro se não encontrar
+"""
+union UserResult = User | Error
+"""
+Retorna uma lista de usuários ou um array vazio
+"""
+union UsersResult = Users | Error
+
+type Query {
+  """
+  Retorna o usuario com o id especificado
+  """
+  user(id: ID!): UserResult
+  """
+  Retorna todos os usuarios
+  """
+  users: UsersResult
+}
+
+type Mutation {
+  """
+  Cria um novo usuario
+  """
+  createUser(input: CreateUserInput): UserResult!
+  """
+  Atualiza as informacoes do usuario com o id especificado
+  """
+  updateUser(id: ID!, input: UpdateUserInput): UserResult!
+  """
+  Deleta o usuario com o id especificado
+  """
+  deleteUser(id: ID!): DefaultResult!
+}

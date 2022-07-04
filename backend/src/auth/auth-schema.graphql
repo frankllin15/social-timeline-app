@@ -1,0 +1,8 @@
+union LoginResult = User | Error
+
+type Mutation {
+  """
+  Retorna o usuário logado
+  """
+  login(email: String!, password: String!): LoginResult!
+}

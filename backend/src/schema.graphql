@@ -1,0 +1,18 @@
+scalar DateTime
+
+type Error {
+  message: String
+  code: String
+}
+
+type DefaultResult {
+  success: Boolean
+  error: Error
+}
+"""
+Input de atualização generico para Posts ou Pomments
+"""
+input UpdatePublicationInput {
+  pubId: String!
+  content: String
+}

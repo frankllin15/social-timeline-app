@@ -1,0 +1,105 @@
+type Post {
+  id: ID!
+  content: String!
+  comments: [Comment]
+  likes: [Like]
+  likesCount: Int
+  author: User
+  createdAt: DateTime!
+  updatedAt: DateTime!
+}
+
+type Comment {
+  id: String!
+  content: String!
+  author: User
+  post: Post
+  createdAt: DateTime!
+  updatedAt: DateTime!
+}
+
+type Like {
+  id: String!
+  author: User
+  post: Post
+}
+
+type PostList {
+  items: [Post]
+}
+
+union PostsResult = PostList | Error
+union PostResult = Post | Error
+
+input CreatePostInput {
+  content: String!
+  authorId: String!
+}
+
+input CreateCommentInput {
+  content: String!
+  postId: String!
+  authorId: String!
+}
+
+# input UpdateCommentInput {
+#   id: String!
+#   content: String!
+# }
+
+input PostsInput {
+  take: Int
+  orderBy: String
+  order: String
+}
+
+input LikePostInput {
+  postId: String!
+  authorId: String!
+}
+
+type Mutation {
+  """
+  Cria um novo post
+  """
+  createPost(input: CreatePostInput!): PostResult!
+  """
+  Deleta o post com o id informado
+  """
+  deletePost(id: ID!): DefaultResult!
+  """
+  Atualiza o post com o id informado
+  """
+  updatePost(input: UpdatePublicationInput): PostResult!
+  """
+  Cria um novo comentário para o post com o id informado
+  """
+  createComment(input: CreateCommentInput!): DefaultResult!
+  """
+  Deleta o comentário com o id informado
+  """
+  deleteComment(id: ID!): DefaultResult!
+  """
+  Atualiza o comentário com o id informado
+  """
+  updateComment(input: UpdatePublicationInput!): DefaultResult!
+  """
+  Cria uma relação de like para o post com o id informado
+  """
+  likePost(input: LikePostInput!): DefaultResult!
+  """
+  Deleta a relação de like com o id informado
+  """
+  unlikePost(input: LikePostInput!): DefaultResult!
+}
+
+type Query {
+  """
+  Retorna todos os posts
+  """
+  posts(input: PostsInput): PostsResult!
+  """
+  Retorna o post com o id informado
+  """
+  post(id: ID!): PostResult!
+}
