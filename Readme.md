@@ -24,7 +24,7 @@ Caso deseje utilizar uma porta diferente para rodar a aplicação `backend` é n
 
 ## Instalação de dependencias
 
-No diretório raiz, execute o seguinte comando para instalar as dependencias das applicações `frontend` e `backend`
+No diretório raiz, execute o seguinte comando para instalar as dependencias das aplicações `frontend` e `backend`
 
 ```bash
   npm install
@@ -38,15 +38,16 @@ No diretório raiz, execute o seguinte comando para executar as aplicações `fr
   npm start
 ```
 
-As aplicações executaram por padrão nas seguintes portas:
+As aplicações executam por padrão nas seguintes portas:
 
 - Frontend: `4173`
-- Backend: `3000`# Tecnologias utilizadas
+- Backend: `3000`
+  
 ## Tecnologias utilizadas
 ### Backend
 
-- [Typescript](https://www.typescriptlang.org)
-- [Nestjs](https://nestjs.com/) - Um framework para criar aplicativos do lado do servidor eficientes, confiáveis ​​e escaláveis.
+- [TypeScript](https://www.typescriptlang.org)
+- [Nestjs](https://nestjs.com/) - Um framework para criar aplicativos do lado do servidor eficientes, confiáveis e escaláveis.
 - [Prisma](https://www.prisma.io/) - Next-generation ORM para Node.js & TypeScript
 - [Graphql](https://graphql.org/) - Linguagem de consulta para APIs em tempo de execução
 - [Apollo Graphql](https://www.apollographql.com/) - Servidor Graphql
