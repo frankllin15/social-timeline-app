@@ -2,17 +2,16 @@
   "name": "grupo-morada-teste",
   "version": "1.0.0",
   "description": "",
-  "workspaces": [
-    "frontend",
-    "backend"
-  ],
   "scripts": {
     "build": "turbo run build",
     "test": "turbo run test",
-    "dev": "turbo run dev",
-    "start": "turbo run start"
+    "start": "concurrently -c \"green,cyan\" \"cd frontend && npm run build && npm run preview\" \"cd backend && npm run build && npm start\"",
+    "install": "concurrently \"cd frontend && npm i -f --silent\" \"cd backend && npm i\""
   },
   "keywords": [],
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "concurrently": "^7.2.2"
+  }
 }
