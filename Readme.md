@@ -54,6 +54,9 @@ As aplicações executam por padrão nas seguintes portas:
 - Frontend: `4173`
 - Backend: `3000`
 
+## Documentação (Backend)
+Acessando http://localhost:3000/graphql será exibido o GraphQL Playground, onde é possível vez toda definição de `types` `querys` e `mutations` e executar consultas.
+
 ## Tecnologias utilizadas
 
 ### Backend
