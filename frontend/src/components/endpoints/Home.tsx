@@ -23,13 +23,13 @@ export const Home = () => {
           <div>Carregando...</div>
         ) : (
           data?.posts.__typename === "PostList" &&
-          (data.posts.items?.length! > 9 ? (
+          (data.posts.items?.length! > 0 ? (
             data.posts?.items?.map(
               (post: any) => post && <PostItem key={post.id} post={post} />
             )
           ) : (
             <h2 className="text-white font-semibold text-center text-2xl md:text-3xl">
-              Nenhum post encontrado :(
+              Nenhum post encontrado. Seja o primeiro a publicar!
             </h2>
           ))
         )}
