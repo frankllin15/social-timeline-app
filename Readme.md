@@ -31,16 +31,15 @@ No diretório raiz, execute o seguinte comando para instalar as dependencias das
 ```bash
   npm install
 ```
+> A execução desse comando instalará as dependencias das duas aplicações `frontend` e `backend`. É esperado que leve de 1 a 2 minutos.
 
 ### Build
 
 No diretório raiz, execute o seguite comando para iniciar o processo de build.
-
-> Esta etapa precisa ser executada apenas umas vez. Nas próximas execuções basta ir para o próximo script
-
 ```bash
   npm run build
 ```
+> Esta etapa precisa ser executada apenas umas vez. Nas próximas execuções basta ir para o próximo script
 
 ### Execuntando a aplicação
 
@@ -70,4 +69,4 @@ As aplicações executam por padrão nas seguintes portas:
 - [React](https://pt-br.reactjs.org/) - Biblioteca JavaScript para criar interfaces de usuário
 - [TaiwindCSS](https://tailwindcss.com/) - Framework CSS de estilização com classes
 - [React Query](https://react-query.tanstack.com/) - Biblioteca react de busca de dados, caching, sincronização e atualização de dados.
-- [Graphql codegenerator](https://www.graphql-code-generator.com/) - Ferramenta de geração de types e operações a partir de esquemas Graqphql
+- [Graphql codegenerator](https://www.graphql-code-generator.com/) - Ferramenta de geração de types e operações a partir de esquemas Graphql
