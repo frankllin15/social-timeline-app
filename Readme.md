@@ -20,9 +20,11 @@ Para rodar essa aplicação é necessário adicionar a seguinte variáveis de am
 
 Caso deseje utilizar uma porta diferente para rodar a aplicação `backend` é necessário alterar a seguite variavel de ambiente no arquivo `.env` na pasta `frontend`:
 
-- `VITE_GRAPHQL_API_URL`: http://localhost:<port>/graphql
+- `VITE_GRAPHQL_API_URL`: http://localhost:<PORT>/graphql
 
-## Instalação de dependencias
+## Instruções para execução
+
+### Instalação de dependencias
 
 No diretório raiz, execute o seguinte comando para instalar as dependencias das applicações `frontend` e `backend`
 
@@ -30,7 +32,13 @@ No diretório raiz, execute o seguinte comando para instalar as dependencias das
   npm install
 ```
 
-## Execuntando a aplicação
+### Build
+
+No diretório raiz, execute o seguite comando para iniciar o processo de build.
+
+> Esta etapa precisa ser executada apenas umas vez. Nas próximas execuções basta ir para o proximo script
+
+### Execuntando a aplicação
 
 No diretório raiz, execute o seguinte comando para executar as aplicações `frontend` e `backend`
 
