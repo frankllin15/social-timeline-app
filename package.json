@@ -5,7 +5,7 @@
   "scripts": {
     "build": "concurrently -c \"green,cyan\" --names \"backend,frontend\" \"cd backend && npm run build\" \"cd frontend && npm run build\"",
     "start": "concurrently -c \"green,cyan\" --names \"backend,frontend\" \"cd backend  && npm run migrate && npm start\" \"cd frontend  && npm run preview\" ",
-    "install": "concurrently -c \"green,cyan\" --names \"cd backend && npm i\" \"backend,frontend\" \"cd frontend && npm i -f --silent\" "
+    "install": "concurrently -c \"green,cyan\" --names  \"backend,frontend\" \"cd frontend && npm i -f --silent\" "
   },
   "keywords": [],
   "author": "",
