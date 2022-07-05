@@ -8,7 +8,7 @@ App web fullstack onde é possivel criar, curtir e comentar postagens
 - Fazer login
 - Criar, editar e excluir um post
 - Comentar e curtir um poste existente
--
+
 
 ## Variáveis de ambiente (Backend)
 
@@ -20,7 +20,7 @@ Para rodar essa aplicação é necessário adicionar a seguinte variáveis de am
 
 Caso deseje utilizar uma porta diferente para rodar a aplicação `backend` é necessário alterar a seguite variavel de ambiente no arquivo `.env` na pasta `frontend`:
 
-- `VITE_GRAPHQL_API_URL`: http://localhost:<PORT>/graphql
+- `VITE_GRAPHQL_API_URL`: http://localhost:<PORT\>/graphql
 
 ## Instruções para execução
 
@@ -36,7 +36,7 @@ No diretório raiz, execute o seguinte comando para instalar as dependencias das
 
 No diretório raiz, execute o seguite comando para iniciar o processo de build.
 
-> Esta etapa precisa ser executada apenas umas vez. Nas próximas execuções basta ir para o proximo script
+> Esta etapa precisa ser executada apenas umas vez. Nas próximas execuções basta ir para o próximo script
 
 ```bash
   npm run build
