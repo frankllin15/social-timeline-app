@@ -11,9 +11,6 @@ yarn-debug.log*
 yarn-error.log*
 lerna-debug.log*
 
-# env files
-.env
-
 
 # OS
 .DS_Store
@@ -32,7 +29,7 @@ lerna-debug.log*
 *.sublime-workspace
 
 # IDE - VSCode
-.vscode/*
+.vscode/*   
 !.vscode/settings.json
 !.vscode/tasks.json
 !.vscode/launch.json
