@@ -5,8 +5,8 @@ import {
   UpdatePublicationInput,
   LikePostInput,
   Post,
-} from './../graphql';
-import { PrismaService } from 'src/PrismaClient';
+} from '../graphql';
+import { PrismaService } from '../PrismaClient';
 import { Injectable } from '@nestjs/common';
 
 @Injectable()

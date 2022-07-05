@@ -1,6 +1,6 @@
-import { CreateUserInput, UpdateUserInput } from './../graphql';
+import { CreateUserInput, UpdateUserInput } from '../graphql';
 import { Injectable } from '@nestjs/common';
-import { PrismaService } from 'src/PrismaClient';
+import { PrismaService } from '../PrismaClient';
 
 @Injectable()
 export class UserService {

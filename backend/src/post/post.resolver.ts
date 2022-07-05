@@ -1,4 +1,4 @@
-import { createGenericError } from 'src/helpers/GraphqlHelpers';
+import { createGenericError } from '../helpers/GraphqlHelpers';
 import {
   CreateCommentInput,
   CreatePostInput,
@@ -20,7 +20,6 @@ export class PostResolver {
   async getPosts(@Args('input') input: PostsInput): Promise<PostsResult> {
     try {
       const items = await this.postService.getPosts(input);
-      items[0];
       return {
         __typename: 'PostList',
         items,

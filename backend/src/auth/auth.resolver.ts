@@ -1,6 +1,6 @@
-import { createGenericError } from 'src/helpers/GraphqlHelpers';
+import { createGenericError } from '../helpers/GraphqlHelpers';
 import { Args, Mutation, Resolver } from '@nestjs/graphql';
-import { LoginResult } from 'src/graphql';
+import { LoginResult } from '../graphql';
 import { AuthService } from './auth.service';
 
 @Resolver()

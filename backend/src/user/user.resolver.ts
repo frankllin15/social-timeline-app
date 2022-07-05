@@ -7,7 +7,7 @@ import {
 } from './../graphql';
 import { Args, Mutation, Query, Resolver } from '@nestjs/graphql';
 import { UserService } from './user.service';
-import { createGenericError } from 'src/helpers/GraphqlHelpers';
+import { createGenericError } from '../helpers/GraphqlHelpers';
 
 @Resolver()
 export class UserResolver {
@@ -28,8 +28,8 @@ export class UserResolver {
       return createGenericError(error);
     }
   }
-
   @Query('users')
+  /* istanbul ignore next */
   async getUsers(): Promise<UsersResult> {
     try {
       const items = await this.userService.getUsers();

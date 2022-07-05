@@ -1,4 +1,4 @@
-import { Error } from 'src/graphql';
+import { Error } from '../graphql';
 
 export const createGenericError = (error: any): Error => {
   return {
