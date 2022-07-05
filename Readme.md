@@ -38,6 +38,10 @@ No diretório raiz, execute o seguite comando para iniciar o processo de build.
 
 > Esta etapa precisa ser executada apenas umas vez. Nas próximas execuções basta ir para o proximo script
 
+```bash
+  npm run build
+```
+
 ### Execuntando a aplicação
 
 No diretório raiz, execute o seguinte comando para executar as aplicações `frontend` e `backend`
@@ -50,8 +54,9 @@ As aplicações executam por padrão nas seguintes portas:
 
 - Frontend: `4173`
 - Backend: `3000`
-  
+
 ## Tecnologias utilizadas
+
 ### Backend
 
 - [TypeScript](https://www.typescriptlang.org)
