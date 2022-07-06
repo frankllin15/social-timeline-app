@@ -13,7 +13,6 @@ describe('AuthResolver', () => {
       providers: [
         AuthResolver,
         { provide: AuthService, useFactory: mockAuthService },
-        PrismaService,
       ],
     }).compile();
 
