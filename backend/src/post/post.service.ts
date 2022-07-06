@@ -1,3 +1,4 @@
+import { SimplePost } from './../graphql';
 import {
   CreatePostInput,
   PostsInput,
@@ -13,7 +14,10 @@ import { Injectable } from '@nestjs/common';
 export class PostService {
   constructor(private readonly prismaService: PrismaService) {}
 
-  async createPost({ authorId, content }: CreatePostInput): Promise<Post> {
+  async createPost({
+    authorId,
+    content,
+  }: CreatePostInput): Promise<SimplePost> {
     return await this.prismaService.post.create({
       data: {
         content,
@@ -53,7 +57,10 @@ export class PostService {
     });
   }
 
-  async updatePost({ pubId, content }: UpdatePublicationInput): Promise<Post> {
+  async updatePost({
+    pubId,
+    content,
+  }: UpdatePublicationInput): Promise<SimplePost> {
     return await this.prismaService.post.update({
       where: { id: pubId },
       data: { content },

@@ -7,6 +7,7 @@ import {
   PostResult,
   PostsInput,
   PostsResult,
+  SimplePostResult,
   UpdatePublicationInput,
 } from './../graphql';
 import { PostService } from './post.service';
@@ -44,11 +45,13 @@ export class PostResolver {
   }
 
   @Mutation('createPost')
-  async createPost(@Args('input') input: CreatePostInput): Promise<PostResult> {
+  async createPost(
+    @Args('input') input: CreatePostInput,
+  ): Promise<SimplePostResult> {
     try {
       const post = await this.postService.createPost(input);
       return {
-        __typename: 'Post',
+        __typename: 'SimplePost',
         ...post,
       };
     } catch (error) {
@@ -59,11 +62,11 @@ export class PostResolver {
   @Mutation('updatePost')
   async updatePost(
     @Args('input') input: UpdatePublicationInput,
-  ): Promise<PostResult> {
+  ): Promise<SimplePostResult> {
     try {
       const post = await this.postService.updatePost(input);
       return {
-        __typename: 'Post',
+        __typename: 'SimplePost',
         ...post,
       };
     } catch (error) {

@@ -49,9 +49,9 @@ export interface UpdateUserInput {
 export interface IMutation {
     __typename?: 'IMutation';
     login(email: string, password: string): LoginResult | Promise<LoginResult>;
-    createPost(input: CreatePostInput): PostResult | Promise<PostResult>;
+    createPost(input: CreatePostInput): SimplePostResult | Promise<SimplePostResult>;
     deletePost(id: string): DefaultResult | Promise<DefaultResult>;
-    updatePost(input?: Nullable<UpdatePublicationInput>): PostResult | Promise<PostResult>;
+    updatePost(input: UpdatePublicationInput): SimplePostResult | Promise<SimplePostResult>;
     createComment(input: CreateCommentInput): DefaultResult | Promise<DefaultResult>;
     deleteComment(id: string): DefaultResult | Promise<DefaultResult>;
     updateComment(input: UpdatePublicationInput): DefaultResult | Promise<DefaultResult>;
@@ -66,10 +66,17 @@ export interface Post {
     __typename?: 'Post';
     id: string;
     content: string;
-    comments?: Nullable<Nullable<Comment>[]>;
-    likes?: Nullable<Nullable<Like>[]>;
-    likesCount?: Nullable<number>;
-    author?: Nullable<User>;
+    comments: Comment[];
+    likes: Like[];
+    author: User;
+    createdAt: DateTime;
+    updatedAt: DateTime;
+}
+
+export interface SimplePost {
+    __typename?: 'SimplePost';
+    id: string;
+    content: string;
     createdAt: DateTime;
     updatedAt: DateTime;
 }
@@ -79,7 +86,6 @@ export interface Comment {
     id: string;
     content: string;
     author?: Nullable<User>;
-    post?: Nullable<Post>;
     createdAt: DateTime;
     updatedAt: DateTime;
 }
@@ -87,13 +93,12 @@ export interface Comment {
 export interface Like {
     __typename?: 'Like';
     id: string;
-    author?: Nullable<User>;
-    post?: Nullable<Post>;
+    author: User;
 }
 
 export interface PostList {
     __typename?: 'PostList';
-    items?: Nullable<Nullable<Post>[]>;
+    items: Post[];
 }
 
 export interface IQuery {
@@ -133,6 +138,7 @@ export type DateTime = any;
 export type LoginResult = User | Error;
 export type PostsResult = PostList | Error;
 export type PostResult = Post | Error;
+export type SimplePostResult = SimplePost | Error;
 export type UserResult = User | Error;
 export type UsersResult = Users | Error;
 type Nullable<T> = T | null;

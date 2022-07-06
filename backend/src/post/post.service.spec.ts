@@ -37,7 +37,7 @@ describe('PostService', () => {
   it('should be defined', () => {
     expect(service).toBeDefined();
   });
-  it('getPosts - should an array of posts', async () => {
+  it('getPosts - should return an array of posts', async () => {
     // prisma.post.findMany = jest.fn().mockReturnValue(mockData.posts);
     const posts = await service.getPosts({
       order: 'desc',

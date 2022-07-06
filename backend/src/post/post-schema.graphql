@@ -1,35 +1,38 @@
 type Post {
   id: ID!
   content: String!
-  comments: [Comment]
-  likes: [Like]
-  likesCount: Int
-  author: User
+  comments: [Comment!]!
+  likes: [Like!]!
+  author: User!
   createdAt: DateTime!
   updatedAt: DateTime!
 }
-
+type SimplePost {
+  id: ID!
+  content: String!
+  createdAt: DateTime!
+  updatedAt: DateTime!
+}
 type Comment {
   id: String!
   content: String!
   author: User
-  post: Post
   createdAt: DateTime!
   updatedAt: DateTime!
 }
 
 type Like {
   id: String!
-  author: User
-  post: Post
+  author: User!
 }
 
 type PostList {
-  items: [Post]
+  items: [Post!]!
 }
 
 union PostsResult = PostList | Error
 union PostResult = Post | Error
+union SimplePostResult = SimplePost | Error
 
 input CreatePostInput {
   content: String!
@@ -62,7 +65,7 @@ type Mutation {
   """
   Cria um novo post
   """
-  createPost(input: CreatePostInput!): PostResult!
+  createPost(input: CreatePostInput!): SimplePostResult!
   """
   Deleta o post com o id informado
   """
@@ -70,7 +73,7 @@ type Mutation {
   """
   Atualiza o post com o id informado
   """
-  updatePost(input: UpdatePublicationInput): PostResult!
+  updatePost(input: UpdatePublicationInput!): SimplePostResult!
   """
   Cria um novo comentário para o post com o id informado
   """

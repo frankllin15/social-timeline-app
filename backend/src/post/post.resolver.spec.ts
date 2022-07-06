@@ -57,7 +57,7 @@ describe('PostResolver', () => {
       authorId: '1',
     };
     const expectedResult = {
-      __typename: 'Post',
+      __typename: 'SimplePost',
       content: 'test',
       id: '3',
     };
@@ -73,7 +73,7 @@ describe('PostResolver', () => {
       content: 'test',
     };
     const expectedResult = {
-      __typename: 'Post',
+      __typename: 'SimplePost',
       content: 'test',
       id: '1',
     };
