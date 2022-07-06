@@ -1,6 +1,5 @@
 import { mockAuthService } from './../../test/mocks/mockAuthService';
 import { AuthService } from './auth.service';
-import { PrismaService } from './../PrismaClient';
 import { Test, TestingModule } from '@nestjs/testing';
 import { AuthResolver } from './auth.resolver';
 import { mockData } from '../../test/mocks/mockData';
