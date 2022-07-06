@@ -2,6 +2,7 @@ import {
   Post,
   UpdatePublicationInput,
   useDeletePostMutation,
+  User,
   useUnlikePostMutation,
   useUpdatePostMutation,
 } from "../lib/graphql/generated";
@@ -17,11 +18,24 @@ import { UpdatePublication } from "./UpdatePublication";
 import { TrashIcon } from "./icons/TrashIcon";
 import { DeletePublication } from "./DeletePublication";
 
+type CustomPost = Omit<Post, "comments" | "likes"> & {
+  comments: {
+    id: string;
+  }[];
+  likes: {
+    id: string;
+    author: {
+      id: string;
+      name: string;
+    };
+  }[];
+};
+
 export const PostItem = ({
   post,
   isPreview = true,
 }: {
-  post: Post;
+  post: CustomPost;
   isPreview?: boolean;
 }) => {
   const { mutate: likePost, isLoading: isLikeLoading } =

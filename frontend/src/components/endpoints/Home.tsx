@@ -1,9 +1,4 @@
-import {
-  Post,
-  PostQuery,
-  PostsQuery,
-  usePostsQuery,
-} from "../../lib/graphql/generated";
+import { PostsQuery, usePostsQuery } from "../../lib/graphql/generated";
 import { NewPost } from "../NewPost";
 import graphqlClient from "../../lib/graphql/graphqlClient";
 import { PostItem } from "../PostItem";
@@ -23,18 +18,14 @@ const MainContent = ({ data, isLoading }: MainContentProps) => {
   }
 
   if (data?.posts.__typename === "PostList") {
-    if (data.posts.items?.length! > 0 &&  data.posts.items instanceof Array<Post>) {
+    if (data.posts.items.length > 0) {
       return (
-        <div> 
-          {
-            data.posts.items.map(
-              (post: any) => 
-              <PostItem key={post.id} post={post} />
-            
-              )
-            }
-          </div>
-        )
+        <div>
+          {data.posts.items.map((post) => (
+            <PostItem key={post.id} post={post} />
+          ))}
+        </div>
+      );
     } else {
       return (
         <h2 className="text-white font-semibold text-center text-2xl md:text-3xl">
@@ -67,23 +58,6 @@ export const Home = () => {
       </h1>
       <NewPost />
       <div className="w-full">
-        {/* {isLoading ? (
-          <h2 className="text-white font-semibold text-center text-2xl md:text-3xl">
-            Carregando...
-          </h2>
-        ) : (
-          data?.posts.__typename === "PostList" &&
-          (data.posts.items?.length! > 0 ? (
-            data.posts?.items?.map(
-              (post: any) => post && <PostItem key={post.id} post={post} />
-            )
-          ) : (
-            <h2 className="text-white font-semibold text-center text-2xl md:text-3xl">
-              Nenhum post encontrado. Seja o primeiro a publicar!
-            </h2>
-          ))
-        )} */}
-
         <MainContent data={data} isLoading={isLoading} />
       </div>
     </div>

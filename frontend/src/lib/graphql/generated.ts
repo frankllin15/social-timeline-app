@@ -26,7 +26,6 @@ export type Comment = {
   content: Scalars['String'];
   createdAt: Scalars['DateTime'];
   id: Scalars['String'];
-  post?: Maybe<Post>;
   updatedAt: Scalars['DateTime'];
 };
 
@@ -61,9 +60,8 @@ export type Error = {
 
 export type Like = {
   __typename?: 'Like';
-  author?: Maybe<User>;
+  author: User;
   id: Scalars['String'];
-  post?: Maybe<Post>;
 };
 
 export type LikePostInput = {
@@ -78,7 +76,7 @@ export type Mutation = {
   /** Cria um novo comentário para o post com o id informado */
   createComment: DefaultResult;
   /** Cria um novo post */
-  createPost: PostResult;
+  createPost: SimplePostResult;
   /** Cria um novo usuario */
   createUser: UserResult;
   /** Deleta o comentário com o id informado */
@@ -96,7 +94,7 @@ export type Mutation = {
   /** Atualiza o comentário com o id informado */
   updateComment: DefaultResult;
   /** Atualiza o post com o id informado */
-  updatePost: PostResult;
+  updatePost: SimplePostResult;
   /** Atualiza as informacoes do usuario com o id especificado */
   updateUser: UserResult;
 };
@@ -154,7 +152,7 @@ export type MutationUpdateCommentArgs = {
 
 
 export type MutationUpdatePostArgs = {
-  input?: InputMaybe<UpdatePublicationInput>;
+  input: UpdatePublicationInput;
 };
 
 
@@ -165,19 +163,18 @@ export type MutationUpdateUserArgs = {
 
 export type Post = {
   __typename?: 'Post';
-  author?: Maybe<User>;
-  comments?: Maybe<Array<Maybe<Comment>>>;
+  author: User;
+  comments: Array<Comment>;
   content: Scalars['String'];
   createdAt: Scalars['DateTime'];
   id: Scalars['ID'];
-  likes?: Maybe<Array<Maybe<Like>>>;
-  likesCount?: Maybe<Scalars['Int']>;
+  likes: Array<Like>;
   updatedAt: Scalars['DateTime'];
 };
 
 export type PostList = {
   __typename?: 'PostList';
-  items?: Maybe<Array<Maybe<Post>>>;
+  items: Array<Post>;
 };
 
 export type PostResult = Error | Post;
@@ -216,6 +213,16 @@ export type QueryPostsArgs = {
 export type QueryUserArgs = {
   id: Scalars['ID'];
 };
+
+export type SimplePost = {
+  __typename?: 'SimplePost';
+  content: Scalars['String'];
+  createdAt: Scalars['DateTime'];
+  id: Scalars['ID'];
+  updatedAt: Scalars['DateTime'];
+};
+
+export type SimplePostResult = Error | SimplePost;
 
 /** Input de atualização generico para Posts ou Pomments */
 export type UpdatePublicationInput = {
@@ -268,7 +275,7 @@ export type CreatePostMutationVariables = Exact<{
 }>;
 
 
-export type CreatePostMutation = { __typename?: 'Mutation', createPost: { __typename: 'Error', message?: string | null, code?: string | null } | { __typename: 'Post', id: string, content: string, createdAt: any, updatedAt: any } };
+export type CreatePostMutation = { __typename?: 'Mutation', createPost: { __typename: 'Error', message?: string | null, code?: string | null } | { __typename: 'SimplePost', id: string, content: string, createdAt: any, updatedAt: any } };
 
 export type DeletePostMutationVariables = Exact<{
   deletePostId: Scalars['ID'];
@@ -278,11 +285,11 @@ export type DeletePostMutationVariables = Exact<{
 export type DeletePostMutation = { __typename?: 'Mutation', deletePost: { __typename?: 'DefaultResult', success?: boolean | null, error?: { __typename?: 'Error', message?: string | null } | null } };
 
 export type UpdatePostMutationVariables = Exact<{
-  input?: InputMaybe<UpdatePublicationInput>;
+  input: UpdatePublicationInput;
 }>;
 
 
-export type UpdatePostMutation = { __typename?: 'Mutation', updatePost: { __typename: 'Error', message?: string | null, code?: string | null } | { __typename: 'Post', id: string, content: string, createdAt: any, updatedAt: any } };
+export type UpdatePostMutation = { __typename?: 'Mutation', updatePost: { __typename: 'Error', message?: string | null, code?: string | null } | { __typename: 'SimplePost', id: string, content: string, createdAt: any, updatedAt: any } };
 
 export type LikePostMutationVariables = Exact<{
   input: LikePostInput;
@@ -324,14 +331,14 @@ export type PostsQueryVariables = Exact<{
 }>;
 
 
-export type PostsQuery = { __typename?: 'Query', posts: { __typename: 'Error', message?: string | null, code?: string | null } | { __typename: 'PostList', items?: Array<{ __typename?: 'Post', id: string, content: string, createdAt: any, updatedAt: any, author?: { __typename?: 'User', id: string, name: string } | null, likes?: Array<{ __typename?: 'Like', author?: { __typename?: 'User', id: string, name: string } | null } | null> | null, comments?: Array<{ __typename: 'Comment', id: string, content: string, author?: { __typename?: 'User', name: string } | null } | null> | null } | null> | null } };
+export type PostsQuery = { __typename?: 'Query', posts: { __typename: 'Error', message?: string | null, code?: string | null } | { __typename: 'PostList', items: Array<{ __typename?: 'Post', id: string, content: string, createdAt: any, updatedAt: any, author: { __typename?: 'User', id: string, name: string, email: string }, likes: Array<{ __typename?: 'Like', id: string, author: { __typename?: 'User', id: string, name: string } }>, comments: Array<{ __typename: 'Comment', id: string, content: string, author?: { __typename?: 'User', name: string } | null }> }> } };
 
 export type PostQueryVariables = Exact<{
   postId: Scalars['ID'];
 }>;
 
 
-export type PostQuery = { __typename?: 'Query', post: { __typename: 'Error', message?: string | null, code?: string | null } | { __typename: 'Post', id: string, content: string, createdAt: any, updatedAt: any, comments?: Array<{ __typename: 'Comment', id: string, content: string, updatedAt: any, author?: { __typename?: 'User', name: string, id: string } | null } | null> | null, likes?: Array<{ __typename?: 'Like', author?: { __typename?: 'User', id: string, name: string } | null } | null> | null, author?: { __typename?: 'User', id: string, name: string } | null } };
+export type PostQuery = { __typename?: 'Query', post: { __typename: 'Error', message?: string | null, code?: string | null } | { __typename: 'Post', id: string, content: string, createdAt: any, updatedAt: any, comments: Array<{ __typename: 'Comment', id: string, content: string, updatedAt: any, author?: { __typename?: 'User', name: string, id: string } | null }>, likes: Array<{ __typename?: 'Like', author: { __typename?: 'User', id: string, name: string } }>, author: { __typename?: 'User', id: string, name: string } } };
 
 
 export const LoginDocument = `
@@ -399,7 +406,7 @@ export const useCreateUserMutation = <
 export const CreatePostDocument = `
     mutation CreatePost($input: CreatePostInput!) {
   createPost(input: $input) {
-    ... on Post {
+    ... on SimplePost {
       __typename
       id
       content
@@ -451,9 +458,9 @@ export const useDeletePostMutation = <
       options
     );
 export const UpdatePostDocument = `
-    mutation UpdatePost($input: UpdatePublicationInput) {
+    mutation UpdatePost($input: UpdatePublicationInput!) {
   updatePost(input: $input) {
-    ... on Post {
+    ... on SimplePost {
       __typename
       id
       content
@@ -609,8 +616,10 @@ export const PostsDocument = `
         author {
           id
           name
+          email
         }
         likes {
+          id
           author {
             id
             name

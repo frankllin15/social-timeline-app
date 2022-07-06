@@ -13,8 +13,10 @@ export const POSTS_QUERY = gql`
           author {
             id
             name
+            email
           }
           likes {
+            id
             author {
               id
               name

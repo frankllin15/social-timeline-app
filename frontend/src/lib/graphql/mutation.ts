@@ -41,7 +41,7 @@ export const REGISTER_MUTATION = gql`
 export const CREATE_POST_MUTATION = gql`
   mutation CreatePost($input: CreatePostInput!) {
     createPost(input: $input) {
-      ... on Post {
+      ... on SimplePost {
         __typename
         id
         content
@@ -70,9 +70,9 @@ export const DELETE_POST_MUTATION = gql`
 `;
 
 export const UPDATE_POST_MUTATION = gql`
-  mutation UpdatePost($input: UpdatePublicationInput) {
+  mutation UpdatePost($input: UpdatePublicationInput!) {
     updatePost(input: $input) {
-      ... on Post {
+      ... on SimplePost {
         __typename
         id
         content
