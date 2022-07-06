@@ -1,7 +1,6 @@
 import { Link } from "react-router-dom";
 import { useAuth } from "../../context/Auth/AuthProvider";
 import { LogoutIcon } from "../icons/LogoutIcon";
-import { Button } from "./Button";
 
 export const Header = () => {
   const { isLoggedIn, logout } = useAuth();
@@ -12,13 +11,7 @@ export const Header = () => {
           Social Timeline
         </span>
       </Link>
-      {/* <nav>
-        <ul className="flex items-center gap-4 h-16 text-white font-semibold">
-          <li>
-            <Link to="/">Inicio</Link>
-          </li>
-        </ul>
-      </nav> */}
+
       <div>
         {isLoggedIn && (
           <button

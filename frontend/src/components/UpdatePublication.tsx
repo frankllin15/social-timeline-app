@@ -1,4 +1,3 @@
-import * as AlertDialog from "@radix-ui/react-alert-dialog";
 import React, { useState } from "react";
 import { UpdatePublicationInput } from "../lib/graphql/generated";
 import { Alert } from "./ui/Alert";
@@ -43,7 +42,6 @@ export const UpdatePublication: React.FC<Props> = ({
   function _handleSubmit(e: React.FormEvent<any>) {
     e.preventDefault();
     handleSubmit(form, handleClose);
-    // setOpen(false);
   }
 
   function handleClose() {

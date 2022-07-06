@@ -3,7 +3,7 @@ import {
   LoginMutationVariables,
 } from "./../../lib/graphql/generated";
 import { createContext } from "react";
-import { LoginMutation, User } from "../../lib/graphql/generated";
+import { User } from "../../lib/graphql/generated";
 
 export type AuthContextType = {
   isLoggedIn: boolean;

@@ -1,6 +1,5 @@
 import { usePostQuery } from "../../lib/graphql/generated";
 import { NewComment } from "../NewComment";
-import { NewPost } from "../NewPost";
 import { PostItem } from "../PostItem";
 import graphqlClient from "../../lib/graphql/graphqlClient";
 import { useParams } from "react-router-dom";

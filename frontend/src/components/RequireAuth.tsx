@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { Navigate, useLocation, useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import { useAuth } from "../context/Auth/AuthProvider";
 
 // Redireciona para a página de login se required for igual a true e o usuário não estiver logado;

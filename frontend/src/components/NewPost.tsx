@@ -1,7 +1,6 @@
 import { useState } from "react";
 import { useQueryClient } from "react-query";
 import {
-  CreateCommentInput,
   CreatePostInput,
   useCreatePostMutation,
 } from "../lib/graphql/generated";

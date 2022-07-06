@@ -6,7 +6,6 @@ import {
   User,
 } from "../../lib/graphql/generated";
 import AuthContext from "./AuthContext";
-import { useLogin } from "../../hooks/useLogin";
 import graphqlClient from "../../lib/graphql/graphqlClient";
 
 export type LoginInput = {

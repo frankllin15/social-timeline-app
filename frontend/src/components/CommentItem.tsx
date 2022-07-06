@@ -9,7 +9,6 @@ import { ptBR } from "date-fns/locale";
 import graphqlClient from "../lib/graphql/graphqlClient";
 import { useQueryClient } from "react-query";
 import { UpdatePublication } from "./UpdatePublication";
-import { TrashIcon } from "./icons/TrashIcon";
 import { DeletePublication } from "./DeletePublication";
 
 export const CommentItem = ({ comment }: { comment: Comment }) => {

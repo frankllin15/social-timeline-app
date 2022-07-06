@@ -1,6 +1,4 @@
-import { InputHTMLAttributes, ReactElement, useEffect, useState } from "react";
-import { useLoginMutation } from "../../lib/graphql/generated";
-import { useLogin } from "../../hooks/useLogin";
+import { InputHTMLAttributes, useState } from "react";
 import { useAuth } from "../../context/Auth/AuthProvider";
 import { Button } from "../ui/Button";
 

@@ -1,6 +1,5 @@
 import { InputHTMLAttributes, ReactElement, useState } from "react";
 import { useAuth } from "../../context/Auth/AuthProvider";
-import { useSingin } from "../../hooks/useSignin";
 import { Button } from "../ui/Button";
 
 const InputText: React.FC<InputHTMLAttributes<HTMLInputElement>> = ({

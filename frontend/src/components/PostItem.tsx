@@ -2,7 +2,6 @@ import {
   Post,
   UpdatePublicationInput,
   useDeletePostMutation,
-  User,
   useUnlikePostMutation,
   useUpdatePostMutation,
 } from "../lib/graphql/generated";
@@ -15,7 +14,6 @@ import { Link } from "react-router-dom";
 import { LikeFillIcon, LikeIcon } from "./icons/LikeIcon";
 import { ChatIcon } from "./icons/ChatIcon";
 import { UpdatePublication } from "./UpdatePublication";
-import { TrashIcon } from "./icons/TrashIcon";
 import { DeletePublication } from "./DeletePublication";
 
 type CustomPost = Omit<Post, "comments" | "likes"> & {

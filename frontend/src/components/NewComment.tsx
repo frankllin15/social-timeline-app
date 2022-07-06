@@ -1,8 +1,8 @@
 import { useState } from "react";
-import { useParams } from "react-router-dom";
-import { Post, useCreateCommentMutation } from "../lib/graphql/generated";
+import { useCreateCommentMutation } from "../lib/graphql/generated";
 import graphqlClient from "../lib/graphql/graphqlClient";
 import { useQueryClient } from "react-query";
+import { Button } from "./ui/Button";
 
 export const NewComment = ({ postId }: { postId: string }) => {
   const [form, setForm] = useState({
@@ -52,13 +52,9 @@ export const NewComment = ({ postId }: { postId: string }) => {
         placeholder="Sua resposta"
         onChange={handleChange}
       />
-      <button
-        // disabled={isLoading}
-        className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-md h-12"
-      >
-        {false ? "Carregando..." : "Publicar"}
-        {/* Login */}
-      </button>
+      <Button type="submit" loading={isLoading}>
+        Publicar
+      </Button>
     </form>
   );
 };
